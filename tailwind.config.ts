@@ -1,7 +1,7 @@
 import type { Config } from "tailwindcss";
 
 export default {
-  content: ["./app/**/{**,.client,.server}/**/*.{js,jsx,ts,tsx}"],
+  content: ["./app/**/*.{js,jsx,ts,tsx}"],
   theme: {
     extend: {
       fontFamily: {
@@ -15,8 +15,17 @@ export default {
           "Segoe UI Symbol",
           "Noto Color Emoji",
         ],
+        mono: ["JetBrains Mono", "monospace"],
+      },
+      colors: {
+        primary: "#232531",
+        secondary: "#1E1E1E",
+        textColor: "#FFFFFF",
+        accent: "#D6431E",
+        muted: "#E5E5EA",
       },
     },
   },
   plugins: [],
 } satisfies Config;
+

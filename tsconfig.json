@@ -1,32 +1,32 @@
 {
   "include": [
-    "**/*.ts",
-    "**/*.tsx",
-    "**/.server/**/*.ts",
-    "**/.server/**/*.tsx",
-    "**/.client/**/*.ts",
-    "**/.client/**/*.tsx"
+      "**/*.ts",
+      "**/*.tsx",
+      "**/.server/**/*.ts",
+      "**/.server/**/*.tsx",
+      "**/.client/**/*.ts",
+      "**/.client/**/*.tsx"
   ],
   "compilerOptions": {
-    "lib": ["DOM", "DOM.Iterable", "ES2022"],
-    "types": ["@remix-run/node", "vite/client"],
-    "isolatedModules": true,
-    "esModuleInterop": true,
-    "jsx": "react-jsx",
-    "module": "ESNext",
-    "moduleResolution": "Bundler",
-    "resolveJsonModule": true,
-    "target": "ES2022",
-    "strict": true,
-    "allowJs": true,
-    "skipLibCheck": true,
-    "forceConsistentCasingInFileNames": true,
-    "baseUrl": ".",
-    "paths": {
-      "~/*": ["./app/*"]
-    },
+      "lib": ["DOM", "DOM.Iterable", "ES2022"],
+      "types": ["@remix-run/node", "vite/client"],
+      "typeRoots": ["node_modules/@types", "node_modules"],
+      "isolatedModules": true,
+      "esModuleInterop": true,
+      "jsx": "react-jsx",
+      "module": "ESNext",
+      "moduleResolution": "Bundler",
+      "resolveJsonModule": true,
+      "target": "ES2022",
+      "strict": true,
+      "allowJs": true,
+      "skipLibCheck": true,
+      "forceConsistentCasingInFileNames": true,
+      "baseUrl": ".",
+      "paths": {
+          "~/*": ["./app/*"]
+      },
 
-    // Vite takes care of building everything, not tsc.
-    "noEmit": true
+      "noEmit": true
   }
 }
