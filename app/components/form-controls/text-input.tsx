@@ -34,7 +34,7 @@ export const InputField = forwardRef<HTMLInputElement, InputFieldProps>(
                 className={cn(
                     inputClassNames,
                     {
-                        "border-rose-500 focus:border-rose-500 focus:ring-rose-500/30":
+                        "border-rose-500 text-textColor focus:border-rose-500 focus:ring-rose-500/30":
                             hasError,
                     },
                     className
@@ -75,7 +75,7 @@ const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
                     {hasError && <ErrorIcon />}
                 </div>
                 {supportiveText && (
-                    <p className="text-xs/none leading-tight text-gray-800">
+                    <p className="text-xs/none leading-tight text-textColor">
                         {supportiveText}
                     </p>
                 )}

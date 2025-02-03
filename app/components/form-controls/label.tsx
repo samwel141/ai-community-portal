@@ -11,7 +11,7 @@ const Label: FC<LabelProps> = ({ htmlFor, label, className, optional }) => (
     <label
         htmlFor={htmlFor}
         className={cn(
-            "items-between text-[13.5px] font-medium leading-6 text-[#4D4D4D]",
+            "items-between text-[13.5px] font-medium leading-6 text-textColor",
             className
         )}
     >

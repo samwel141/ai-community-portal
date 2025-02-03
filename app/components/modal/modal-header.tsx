@@ -21,7 +21,7 @@ export const ModalHeader: FC<ModalHeaderProps> = ({ title, subtitle }) => {
             <AvatarCard
                 wrapperClassName={"gap-4 items-start"}
                 className={"mt-0.5 border bg-transparent text-dark"}
-                titleClassName={"text-lg text-primary-950 pb-1"}
+                titleClassName={"text-lg text-textColor pb-1"}
                 title={title}
                 subtitle={subtitle}
                 subtitleClassName={"text-dark-green order-last "}
