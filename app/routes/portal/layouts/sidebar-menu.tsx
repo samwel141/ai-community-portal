@@ -110,7 +110,7 @@ const Menu = ({ active, Icon, name, hasSubmenu, open, disabled }: IMenu) => {
             className={cn(
                 "w-full border border-transparent text-textColor font-sm hover:bg-[#1E1E1E] px-3 py-2.5 flex space-x-3 items-center rounded-lg cursor-pointer",
                 {
-                    "bg-[#D6431E] border-[#D8DBD2]": active,
+                    "bg-[#D6431E] border-none": active,
                 },
                 { " cursor-not-allowed opacity-50 ": disabled }
             )}

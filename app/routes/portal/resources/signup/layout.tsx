@@ -2,13 +2,13 @@ import { Outlet } from "@remix-run/react";
 import Modal from "~/components/modal";
 import useRouteModal from "~/hooks/useRouteModal";
 
-const LoginFormLayout = () => {
+const SignUpFormLayout = () => {
     const { open, closeModal } = useRouteModal();
     return (
         <Modal open={open} onClose={closeModal}>
             <Modal.Panel size={"sm"}>
                 <Modal.Header
-                    title={"Sign in"}
+                    title={"Sign Up"}
                     subtitle={""}
                 />
                 <Modal.Content className={"space-y-3"}>
@@ -18,4 +18,4 @@ const LoginFormLayout = () => {
         </Modal>
     );
 };
-export default LoginFormLayout;
+export default SignUpFormLayout;

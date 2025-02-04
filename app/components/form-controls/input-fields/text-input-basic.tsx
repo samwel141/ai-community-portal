@@ -14,7 +14,7 @@ export const TextInputBasic = forwardRef<HTMLInputElement, TextInputBasicProps>(
                 ref={ref}
                 {...rest}
                 className={cn(inputClassNames, className, {
-                    "border-rose-500 text-textColor bg-red-500 focus:border-rose-500 focus:ring-rose-500/30  ":
+                    "border-rose-500 text-textColor focus:border-rose-500 focus:ring-rose-500/30  ":
                         hasError,
                 })}
             />

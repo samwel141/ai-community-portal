@@ -12,7 +12,7 @@ import renderFormField from "~/utils/render-form-field";
 import { requireToken } from "~/utils/session.server";
 import { ModalFormError } from "~/components/modal/modal-form-error";
 import { Button } from "~/components/button";
-import useManageLoginForm from "./manage-login-form";
+import useManageLoginForm from "./manage-sigup-form";
 import { LoginFormType } from "~/api/login/login-form-schema";
 
 export const action = async ({ request }: ActionFunctionArgs) => {
@@ -27,7 +27,7 @@ export const action = async ({ request }: ActionFunctionArgs) => {
     );
 };
 
-const LoginForm = () => {
+const SignUpForm = () => {
     const { handleSubmit, fields: formFields } = useManageLoginForm();
 
     const submit = useSubmitData();
@@ -57,22 +57,16 @@ const LoginForm = () => {
                         loading={isBusy}
                         className={"w-full bg-textColor text-gray-900 rounded-lg py-2.5 text-sm"}
                     >
-                        Sign in
+                        Sign Up
                     </Button>
                 </div>
                 <div>
                     <div className="flex gap-4">
                         <Link
                             className="focus:ring-0 text-underline text-textColor text-xs hover:opacity-90 border-none"
-                            to="home/login"
+                            to="/portal/home/login"
                         >
-                            Sign up
-                        </Link>
-                        <Link
-                            className="focus:ring-0 text-textColor text-xs hover:opacity-90 border-none"
-                            to="home/login"
-                        >
-                            Forgot Password?
+                            Sign in
                         </Link>
                     </div>
                 </div>
@@ -80,7 +74,7 @@ const LoginForm = () => {
         </form>
     );
 };
-export default LoginForm;
+export default SignUpForm;
 
 export const ErrorBoundary = () => {
     return (

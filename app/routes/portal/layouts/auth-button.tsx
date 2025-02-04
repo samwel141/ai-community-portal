@@ -23,7 +23,10 @@ const AuthButton = () => {
                 !authUser ? (
                     <div className="flex items-center gap-3">
                         <div>
-                            <Button className="bg-accent hover:opacity-90 focus:ring-0">
+                            <Button 
+                            className="bg-accent hover:opacity-90 focus:ring-0"
+                            onClick={() => navigate("home/signup")}
+                            >
                                 Sign up
                             </Button>
                         </div>

@@ -13,8 +13,8 @@ const MyComponent: FC = () => {
       <PageContainer>
       <Outlet />
         <div className="text-textColor">
-          <h1>Hello, Samwel!</h1>
-          <p>Welcome to Tanzania AI community</p>
+          <h1>Challenges!</h1>
+          <p>Welcome to Tanzania AI community Challenges Page</p>
         </div>
       </PageContainer>
     </>
