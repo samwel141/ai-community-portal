@@ -20,7 +20,7 @@ export default {
       colors: {
         primary: "#232531",
         secondary: "#1E1E1E",
-        textColor: "#FFFFFF",
+        textColor: "#CED0DC",
         accent: "#D6431E",
         muted: "#E5E5EA",
       },

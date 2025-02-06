@@ -20,11 +20,11 @@ const AuthButton = () => {
     return (
         <div>
             {
-                !authUser ? (
+                authUser ? (
                     <div className="flex items-center gap-3">
                         <div>
                             <Button 
-                            className="bg-accent hover:opacity-90 focus:ring-0"
+                            className="bg-accent hover:opacity-80 focus:ring-0"
                             onClick={() => navigate("home/signup")}
                             >
                                 Sign up
@@ -60,7 +60,7 @@ const AuthButton = () => {
                             <div className={""}>
                                 <DropdownMenu.Item
                                     className={"focus:bg-secondary"}
-                                    onClick={() => navigate("/profile")}
+                                    onClick={() => navigate("home/profile")}
                                 >
                                     <ProfileIcon />
                                     <p className="text-sm text-white">Profile</p>

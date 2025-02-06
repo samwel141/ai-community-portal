@@ -12,7 +12,7 @@ export const sidebarMenuList: SidebarMenuItemProps[] = [
         Icon: HomeIcon,
         link: "/portal/home",
         name: "Home",
-        pattern: new RegExp("^/portal/home$"),
+        pattern: new RegExp("^/portal/home*"),
     },
     {
         Icon: PostsIcon,

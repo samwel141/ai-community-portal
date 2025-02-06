@@ -1,7 +1,6 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
-import { LoginFormSchema, LoginFormType } from "~/api/login/login-form-schema";
 import { FormField } from "~/utils/render-form-field";
 import { NoneEmptyStringSchema, OptionalEmailSchema, PositiveNumberSchema } from "~/utils/zod-common";
 
@@ -49,8 +48,8 @@ const useManageSignUpForm = () => {
             inputType: "textInput",
             register,
             placeholder: "Enter your firstname",
-            className: "bg-primary text-textColor",
-            wrapperClassName: "bg-primary text-textColor",
+            className: "cols-pan-2",
+            wrapperClassName: "cols-pan-2",
             hasError: !!errors.firstname?.message,
         },
         {
@@ -59,8 +58,8 @@ const useManageSignUpForm = () => {
             inputType: "textInput",
             register,
             placeholder: "Enter your lastname",
-            className: "bg-primary text-textColor",
-            wrapperClassName: "bg-primary text-textColor",
+            className: "cols-pan-2",
+            wrapperClassName: "cols-pan-2",
             hasError: !!errors.lastname?.message,
         },
         {

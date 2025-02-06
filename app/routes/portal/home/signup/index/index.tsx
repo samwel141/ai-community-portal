@@ -42,7 +42,7 @@ const SignUpForm = () => {
             onSubmit={handleSubmit(onSubmit)}
             className={"space-y-7 w-full"}
         >
-            <div className={"space-y-3.5"}>
+            <div className={"space-y-2"}>
                 {formFields.map((field) => (
                     <Fragment key={field.name}>
                         {renderFormField(field)}
@@ -63,7 +63,7 @@ const SignUpForm = () => {
                 <div>
                     <div className="flex gap-4">
                         <Link
-                            className="focus:ring-0 text-underline text-textColor text-xs hover:opacity-90 border-none"
+                            className="focus:ring-0 text-underline text-textColor text-xs hover:opacity-90 border-none underline"
                             to="/portal/home/login"
                         >
                             Sign in

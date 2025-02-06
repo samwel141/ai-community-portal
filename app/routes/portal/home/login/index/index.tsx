@@ -63,13 +63,13 @@ const LoginForm = () => {
                 <div>
                     <div className="flex gap-4">
                         <Link
-                            className="focus:ring-0 text-underline text-textColor text-xs hover:opacity-90 border-none"
+                            className="underline text-textColor text-xs hover:opacity-90 border-none focus:ring-0"
                             to="home/login"
                         >
                             Sign up
                         </Link>
                         <Link
-                            className="focus:ring-0 text-textColor text-xs hover:opacity-90 border-none"
+                            className="focus:ring-0 underline text-textColor text-xs hover:opacity-90 border-none"
                             to="home/login"
                         >
                             Forgot Password?
