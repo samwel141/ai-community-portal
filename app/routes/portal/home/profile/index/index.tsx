@@ -78,7 +78,7 @@ const ProfilePage = () => {
             <div className="flex justify-center pl-[20rem]">
                 <Button
                     outline
-                    onClick={() => navigate("/portal/home/profile/finish")}
+                    onClick={() => navigate("/portal/home/profile/finish-profile-setup")}
                     className="border border-gray-400 rounded-md px-[6rem] text-xs bg-primary hover:opacity-80">
                     Finish Your Profile
                 </Button>

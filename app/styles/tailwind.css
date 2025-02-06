@@ -29,3 +29,20 @@
   }
 }
 
+input:-webkit-autofill {
+  background-color: transparent !important;
+  box-shadow: 0 0 0px 1000px white inset !important;
+  -webkit-text-fill-color: #000 !important;
+}
+
+
+
+input:-moz-autofill {
+  background-color: transparent !important;
+}
+
+
+
+input:focus {
+  background-color: white !important;
+}
