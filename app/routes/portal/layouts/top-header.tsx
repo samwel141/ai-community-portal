@@ -43,10 +43,13 @@ const TopHeader = () => {
 
             <div className="flex items-center gap-4">
                 <Link className="flex gap-2 px-4 py-2 rounded-full hover:opacity-80" to={""}>
-                    <CommunityIcon className="text-textColor size-5" />
-                    <p className="text-textColor text-sm">Community</p>
+                <span title="Community">
+                <CommunityIcon  className="text-textColor size-5" />
+                </span>
+   
+                    <p className="hidden sm:block text-textColor text-sm">Community</p>
                 </Link>
-                <div>
+                <div className="hidden sm:block">
                     <SearchBox placeholder={"Search"} />
                 </div>
             </div>

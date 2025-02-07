@@ -38,7 +38,7 @@ const PageHeader: FC<Props> = ({
     }
 
     return (
-        <section className={cn("items-between py-3", className)}>
+        <section className={cn("items-between py-2 px-2 md:py-3", className)}>
             <h1 className={"text-xl text-textColor font-semibold md:text-2xl"}>{title}</h1>
             <Hide condition={!hasSearch}>
             <SearchBox  placeholder={searchPlaceholder}/>

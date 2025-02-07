@@ -86,7 +86,7 @@ function renderFormField<TFieldValues extends FieldValues = FieldValues>(
 ): ReactNode {
     const defaultLabelClassName = "text-gray-700 font-normal text-[13.5px]";
     const defaultClassName =
-        "lg:py-2.5 border-[1px] shadow-none bg-white text-gray-700 xl:text-[14.5px]";
+        "lg:py-2.5 border-[1px] shadow-none bg-transparent text-gray-700 xl:text-[14.5px]";
 
     const {
         register,

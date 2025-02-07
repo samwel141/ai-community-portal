@@ -1,8 +1,8 @@
 import { Link, useNavigate } from "@remix-run/react";
-import { Avatar, AvatarCard } from "~/components/avatar";
+import { Avatar } from "~/components/avatar";
 import { Button } from "~/components/button";
 import { DropdownMenu } from "~/components/dropdown-menu";
-import { LoginOutIcon, ProfileIcon, SignOutIcon, UserIcon } from "~/components/icons";
+import { ProfileIcon, SignOutIcon, UserIcon } from "~/components/icons";
 import { useAppContext } from "~/providers/app-provider";
 import { generateAvatar } from "~/utils/generate-avatar";
 
@@ -45,7 +45,7 @@ const AuthButton = () => {
                     <DropdownMenu>
                         <DropdownMenu.Trigger>
                             <div className="flex items-center gap-2">
-                                <p className="text-sm text-textColor">Samwel</p>
+                                <p className="hidden sm:block text-sm text-textColor">Samwel</p>
                                 <Avatar
                                     Icon={UserIcon}
                                     imageUrl={avatarUrl}

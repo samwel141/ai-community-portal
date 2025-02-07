@@ -19,7 +19,7 @@ export const EditorSmall: FC<EditorSmallProps> = ({
     return (
         <Card
             className={cn(
-                "border rounded-xl w-full p-0 h-40 overflow-y-auto no-scrollbar ",
+                "border border-textColor rounded-xl w-full p-0 h-40 overflow-y-auto no-scrollbar ",
                 className
             )}
         >

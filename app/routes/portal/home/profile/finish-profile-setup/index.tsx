@@ -42,20 +42,19 @@ const ProfileInfoForm = () => {
     };
 
     return (
-        <PageContainer>
+        <PageContainer className="my-4">
             <form onSubmit={handleSubmit(onSubmit)}>
+                
                 <Outlet />
-                <div className="sticky top-0 bg-secondary z-10">
-                    <h1 className="font-bold text-lg text-textColor text-gray-700">
+              
+                <div className="sticky top-0 bg-primary z-10">
+                    <h1 className="font-bold pt-0 text-lg md:text-xl text-textColor text-gray-700 sm:text-base">
                         Profile Information
                     </h1>
                 </div>
-                <div className={"space-y-4"}>
-                    <div className=" p-7 rounded-md">
-                        <h1 className="font-semibold text-textColor">
-                            Item Details
-                        </h1>
-                        <div className={"space-y-4 pt-4"}>
+                <div className={"space-y-2"}>
+                    <div className="p-1 sm:p-4 rounded-md">
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4">
                             {profileFormFields.slice(0, 2).map((field) => (
                                 <Fragment key={field.name}>
                                     {renderFormField(field)}
@@ -74,8 +73,8 @@ const ProfileInfoForm = () => {
                                                 key={tag}
                                                 type="button"
                                                 className={`px-4 py-2 rounded-full bg-transparent border-4 border-red-500 ${selectedTechnologies.includes(tag)
-                                                    ? "bg-secondary text-textColor border-secondary"
-                                                    : "bg-transparent text-textColor border-primary border-2"
+                                                    ? "bg-transparent text-textColor border-accent border-[1px]"
+                                                    : "bg-secondary text-textColor border-primary border-1"
                                                     }`}
                                                 onClick={() => toggleTechnologies(tag)}
                                             >
@@ -99,8 +98,8 @@ const ProfileInfoForm = () => {
                                                 key={sector}
                                                 type="button"
                                                 className={`px-4 py-2 rounded-full bg-transparent border-4 border-red-500 ${selectedSectors.includes(sector)
-                                                    ? "bg-secondary text-textColor border-secondary"
-                                                    : "bg-transparent text-textColor border-primary border-2"
+                                                    ? "bg-transparent text-textColor border-accent border-[1px]"
+                                                    : "bg-secondary text-textColor border-primary border-1"
                                                     }`}
                                                 onClick={() => toggleSectors(sector)}
                                             >
@@ -112,7 +111,7 @@ const ProfileInfoForm = () => {
                             />
                         </div>
 
-                        <div className={"space-y-4 pt-4"}>
+                        <div className={"grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4"}>
                             {profileFormFields.slice(2).map((field) => (
                                 <Fragment key={field.name}>
                                     {renderFormField(field)}
@@ -129,7 +128,7 @@ const ProfileInfoForm = () => {
                                     <EditorSmall
                                         defaultContents={value}
                                         onChange={onChange}
-                                        className="w-full text-textColor focus:border-secondary border-secondary h-40"
+                                        className="w-full text-textColor focus:border-secondary border-textColor h-40"
                                     />
                                 )}
                             />
@@ -137,7 +136,7 @@ const ProfileInfoForm = () => {
 
                     </div>
                 </div>
-                <div className="flex justify-end items-center gap-4">
+                <div className="flex justify-end  my-8  items-center gap-6 px-8">
                  
                     <Button
                     className="w-[7rem] bg-gray-200 text-gray-900 rounded-lg py-2.5 text-sm"
@@ -151,6 +150,7 @@ const ProfileInfoForm = () => {
                         Submit
                     </Button>
                 </div>
+
             </form>
         </PageContainer>
     );

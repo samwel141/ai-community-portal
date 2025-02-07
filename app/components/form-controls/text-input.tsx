@@ -34,7 +34,7 @@ export const InputField = forwardRef<HTMLInputElement, InputFieldProps>(
                 className={cn(
                     inputClassNames,
                     {
-                        "border-rose-500 text-textColor focus:border-rose-500 focus:ring-rose-500/30":
+                        "border-red-500 text-textColor focus:border-rose-500 focus:ring-rose-500/30":
                             hasError,
                     },
                     className

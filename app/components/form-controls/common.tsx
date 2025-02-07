@@ -22,9 +22,9 @@ export const ErrorIcon = () => {
 };
 
 export const inputClassNames = `
-    spin-button-none w-full  
+    spin-button-none w-full bg-primary text-textColor
     overflow-hidden rounded-lg border border-gray-400
-    py-2 font-normal tracking-wider text-gray-400
+    py-2 font-normal tracking-wider
      shadow-sm 
     placeholder:text-sm placeholder:font-light placeholder:text-gray-400 
     focus:border-gray-400
