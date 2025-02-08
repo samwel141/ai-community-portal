@@ -30,11 +30,16 @@ export const InputField = forwardRef<HTMLInputElement, InputFieldProps>(
                 ref={ref}
                 type="text"
                 autoComplete={"off"}
+                style={{
+                    color: "white",
+                    background: "transparent",
+                }
+                }
                 {...rest}
                 className={cn(
                     inputClassNames,
                     {
-                        "border-red-500 text-textColor focus:border-rose-500 focus:ring-rose-500/30":
+                        "border-red-500 focus:border-rose-500 focus:ring-rose-500/30":
                             hasError,
                     },
                     className

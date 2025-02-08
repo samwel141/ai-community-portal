@@ -6,7 +6,7 @@ const SignUpFormLayout = () => {
     const { open, closeModal } = useRouteModal();
     return (
         <Modal open={open} onClose={closeModal}>
-            <Modal.Panel size={"lg"}>
+            <Modal.Panel size={"xs"} className={"md:w-[30rem]"}>
                 <Modal.Header
                     title={"Sign Up"}
                     subtitle={""}

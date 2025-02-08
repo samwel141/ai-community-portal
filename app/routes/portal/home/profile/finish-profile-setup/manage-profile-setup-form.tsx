@@ -44,6 +44,7 @@ export const useManageProfileInfoForm = () => {
             label: "Occupation",
             placeholder: "Enter Occupation",
             wrapperClassName: "cols-pan-2",
+            className: "focus:text-black",
             register,
             hasError: !!errors?.occupation?.message,
         },

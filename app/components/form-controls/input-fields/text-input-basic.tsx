@@ -14,7 +14,9 @@ export const TextInputBasic = forwardRef<HTMLInputElement, TextInputBasicProps>(
             ref={ref}
             autoComplete="off"
             style={{ 
-              color: "white",
+              color: "#808080",
+              paddingLeft: "2px"
+,              opacity: 400,
               background: "transparent",
             }}
             onFocus={(e) => {
@@ -25,7 +27,7 @@ export const TextInputBasic = forwardRef<HTMLInputElement, TextInputBasicProps>(
             }}
             {...rest}
             className={cn(inputClassNames, className, {
-              "border-gray-400 bg-transparent text-textColor focus:border-rose-500 focus:ring-rose-500/30":
+              "border-gray-400 bg-transparent  focus:border-rose-500 focus:ring-rose-500/30":
                 hasError,
               "bg-transparent": rest.value,
             })}

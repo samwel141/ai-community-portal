@@ -20,13 +20,14 @@ export const ModalPanel: FC<ModalPanelProps> = ({
         as,
         {
             className: cn(
-                "flex h-full flex-col bg-primary space-y-2 rounded-2xl border border-8 border-secondary pb-3",
+                "flex h-full flex-col bg-primary space-y-2 rounded-2xl border border-8 border-secondary pb-3 mr-[30rem] md:mr-1",                
                 { "w-[35rem] ": size === "3xl" },
                 { "w-[34rem] ": size === "2xl" },
                 { "w-[33rem] ": size === "xl" },
                 { "w-[32rem] ": size === "lg" },
                 { "w-[31rem] ": size === "md" },
                 { "w-[30rem] ": size === "sm" },
+                { "w-[22rem] ": size === "xs" },
                 className
             ),
             ...otherProps,

@@ -1,6 +1,6 @@
 import { ActionFunctionArgs } from "@remix-run/node";
-import { Link, useLocation } from "@remix-run/react";
-import { Fragment, useState } from "react";
+import { Link } from "@remix-run/react";
+import { Fragment } from "react";
 import { redirectWithSuccess } from "remix-toast";
 import GeneralErrorBoundary from "~/components/error-boundary";
 import { useNavigationState } from "~/hooks/useNavigationState";
@@ -23,7 +23,7 @@ export const action = async ({ request }: ActionFunctionArgs) => {
 
     return redirectWithSuccess(
         `/portal/home`,
-        "New Adjust Reported Successfully"
+        "Login Successfully"
     );
 };
 
@@ -55,21 +55,23 @@ const LoginForm = () => {
                 <div>
                     <Button
                         loading={isBusy}
-                        className={"w-full bg-textColor text-gray-900 rounded-lg py-2.5 text-sm"}
+                        className={
+                            "w-full bg-textColor text-gray-900 rounded-lg py-1.5 text-sm md:text-base md:py-2.5 md:px-4"
+                        }
                     >
                         Sign in
                     </Button>
                 </div>
                 <div>
-                    <div className="flex gap-4">
+                    <div className="flex gap-2 md:gap-4">
                         <Link
-                            className="underline text-textColor text-xs hover:opacity-90 border-none focus:ring-0"
+                            className="underline text-textColor text-sm hover:opacity-90 border-none focus:ring-0"
                             to="home/login"
                         >
                             Sign up
                         </Link>
                         <Link
-                            className="focus:ring-0 underline text-textColor text-xs hover:opacity-90 border-none"
+                            className="focus:ring-0 underline text-textColor text-sm hover:opacity-90 border-none"
                             to="home/login"
                         >
                             Forgot Password?

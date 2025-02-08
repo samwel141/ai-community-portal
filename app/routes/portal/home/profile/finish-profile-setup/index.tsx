@@ -52,7 +52,7 @@ const ProfileInfoForm = () => {
                         Profile Information
                     </h1>
                 </div>
-                <div className={"space-y-2"}>
+                <div className={"space-y-4"}>
                     <div className="p-1 sm:p-4 rounded-md">
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4">
                             {profileFormFields.slice(0, 2).map((field) => (

@@ -15,13 +15,14 @@ import { ModalHeader } from "~/components/modal/modal-header";
 import { ModalPanel } from "~/components/modal/modal-pannel";
 import { cn } from "~/utils";
 
-export type DialogSize = "sm" | "md" | "lg" | "xl" | "2xl" | "3xl";
+export type DialogSize = "xs" | "sm" | "md" | "lg" | "xl" | "2xl" | "3xl";
 
 export interface DialogProps {
     open: boolean;
     children: ReactNode;
     onClose: Dispatch<boolean>;
     top?: DialogSize;
+    right?: DialogSize;
 }
 
 const ModalContext = createContext<{
@@ -46,13 +47,14 @@ const Modal = ({ open, onClose, children, top = "3xl" }: DialogProps) => {
                     as={"div"}
                     onClose={onClose}
                     className={cn(
-                        "fixed inset-0 top-0 z-50 p-5 ",
+                        "fixed  top-0 z-50 p-auto left-[-4rem] md:left-1 md:inset-0",
                         { "p-[10vh] 2xl:pt-[10vh] ": top === "3xl" },
                         { "p-[8vh] 2xl:pt-[10vh] ": top === "2xl" },
                         { "p-[6vh] 2xl:pt-[10vh] ": top === "xl" },
                         { "p-[5vh] 2xl:pt-[10vh] ": top === "lg" },
                         { "p-[4vh] 2xl:pt-[10vh] ": top === "md" },
-                        { "p-[3vh] 2xl:pt-[10vh] ": top === "sm" }
+                        { "p-[3vh] 2xl:pt-[10vh] ": top === "sm" },
+                        { "p-auto 2xl:pt-[10vh]": top === "xs" },
                     )}
                 >
                     <Transition.Child
