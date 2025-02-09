@@ -136,8 +136,7 @@ const ProfileInfoForm = () => {
 
                     </div>
                 </div>
-                <div className="flex justify-end  my-8  items-center gap-6 px-8">
-                 
+                <div className="flex justify-center sm:justify-end  my-8  items-center gap-6 px-8">                 
                     <Button
                     className="w-[7rem] bg-gray-200 text-gray-900 rounded-lg py-2.5 text-sm"
                     >

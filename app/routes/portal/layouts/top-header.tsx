@@ -1,8 +1,7 @@
-import { Link, Outlet, useLocation, useNavigate } from "@remix-run/react";
+import { Link, useLocation, useNavigate } from "@remix-run/react";
 import { DropdownMenu } from "~/components/dropdown-menu";
 import { HomeIcon } from "~/components/icons";
 import { CommunityIcon } from "~/components/icons/community-icon";
-import { MenuIcon } from "~/components/icons/menu-icon";
 import { QuestionMarkIcon } from "~/components/icons/question-mark-icon";
 import SearchBox from "~/components/search-box";
 import AuthButton from "~/routes/portal/layouts/auth-button";
@@ -20,7 +19,7 @@ const TopHeader = () => {
               <DropdownMenu>
                         <DropdownMenu.Trigger>
                             <div className="flex items-center gap-2">
-                            <HomeIcon className="text-white size-4" />
+                            <HomeIcon className="text-white size-6" />
                             </div>
                         </DropdownMenu.Trigger>
 
@@ -44,7 +43,7 @@ const TopHeader = () => {
             <div className="flex items-center gap-4">
                 <Link className="flex gap-2 px-4 py-2 rounded-full hover:opacity-80" to={""}>
                 <span title="Community">
-                <CommunityIcon  className="text-textColor size-5" />
+                <CommunityIcon  className="text-textColor size-6 sm:size-5" />
                 </span>
    
                     <p className="hidden sm:block text-textColor text-sm">Community</p>
@@ -56,7 +55,7 @@ const TopHeader = () => {
             <div className="ml-12">
                 <Link className="flex gap-2 md:ml-20 ml-8 hover:opacity-80" to={""}>
                     <QuestionMarkIcon className="size-5" />
-                    <p className="text-textColor text-sm">Get Help</p>
+                    <Link to="/help" className="text-textColor text-sm">Get Help</Link>
                 </Link>
             </div>
 
