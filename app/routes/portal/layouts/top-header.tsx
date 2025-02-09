@@ -53,9 +53,9 @@ const TopHeader = () => {
                 </div>
             </div>
             <div className="ml-12">
-                <Link className="flex gap-2 md:ml-20 ml-8 hover:opacity-80" to={""}>
+                <Link className="flex gap-2 md:ml-20 ml-8 hover:opacity-80" to="/help">
                     <QuestionMarkIcon className="size-5" />
-                    <Link to="/help" className="text-textColor text-sm">Get Help</Link>
+                    <p className="text-textColor text-sm">Get Help</p>
                 </Link>
             </div>
 

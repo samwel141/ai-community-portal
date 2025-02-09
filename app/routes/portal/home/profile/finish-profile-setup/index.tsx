@@ -7,14 +7,30 @@ import PageContainer from "~/components/page-container";
 import { Controller } from "react-hook-form";
 import { Button } from "~/components/button";
 import { EditorSmall } from "~/components/tip-tap-editor";
+import useSubmitData from "~/hooks/useSubmitData";
+import { ActionFunctionArgs } from "@remix-run/node";
+import { ApiRequest } from "~/utils/api-request";
+
+
+
+
+export const action = async ({ request }: ActionFunctionArgs) => {
+    const apiRequest = await ApiRequest.init(request);
+
+    return await apiRequest.post<ProfileFormType>(
+        "/profile/update",
+        {
+            successMessage: "Profile updated successfully",
+            onSuccessRedirect: "/portal/home",
+        }
+    );
+};
+
 
 const ProfileInfoForm = () => {
 
     const { handleSubmit, profileFormFields, setValue, control } = useManageProfileInfoForm();
 
-    const onSubmit = (formData: ProfileFormType) => {
-        console.log(formData);
-    };
 
     const options = ["React", "Angular", "Vue", "Svelte", "Node.js"];
     const [selectedTechnologies, setSelectedTechnologies] = useState<string[]>([]);
@@ -39,6 +55,12 @@ const ProfileInfoForm = () => {
             : [...selectedSectors, sector];
         setSelectedSectors(newSectors);
         setValue("sectors", newSectors);
+    };
+
+    const submit = useSubmitData();
+    const onSubmit = (formData: ProfileFormType) => {
+        console.log(formData);
+        submit(formData);
     };
 
     return (

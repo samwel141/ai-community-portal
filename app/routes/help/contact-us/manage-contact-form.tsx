@@ -2,7 +2,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { FormField } from "~/utils/render-form-field";
-import { NoneEmptyStringSchema, OptionalEmailSchema, PositiveNumberSchema } from "~/utils/zod-common";
+import { NoneEmptyStringSchema, OptionalEmailSchema } from "~/utils/zod-common";
 
 
 
@@ -36,8 +36,8 @@ const useManageContactForm = () => {
             inputType: "textInput",
             register,
             placeholder: "Enter your firstname",
-            className: "cols-pan-2",
-            wrapperClassName: "cols-pan-2",
+            className: "cols-pan-2 w-full",
+            wrapperClassName: "cols-pan-2 w-full",
             hasError: !!errors.firstname?.message,
         },
         {
@@ -46,8 +46,8 @@ const useManageContactForm = () => {
             inputType: "textInput",
             register,
             placeholder: "Enter your lastname",
-            className: "cols-pan-2",
-            wrapperClassName: "cols-pan-2",
+            className: "cols-pan-2 w-full",
+            wrapperClassName: "cols-pan-2 w-full",
             hasError: !!errors.lastname?.message,
         },
         {
