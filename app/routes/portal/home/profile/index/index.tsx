@@ -7,8 +7,8 @@ import { useGetProfileDetails } from "~/routes/portal/home/profile/resources/ind
 
 const ProfilePage = () => {
 
-const { data: profileDat } = useGetProfileDetails()
-console.log(["profileDat",profileDat]);
+// const { data: profileDat } = useGetProfileDetails()
+// console.log(["profileDat",profileDat]);
 
 
     const navigate = useNavigate();

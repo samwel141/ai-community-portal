@@ -20,7 +20,7 @@ export const ModalPanel: FC<ModalPanelProps> = ({
         as,
         {
             className: cn(
-                "flex h-full flex-col bg-primary space-y-2 rounded-2xl border border-8 border-secondary pb-3 mr-[30rem] md:mr-1",                
+                "flex h-full flex-col bg-primary space-y-2 px-2 md:px-8 pb-12 pt-8 border border-1 border-secondary pb-1 mr-[30rem] md:mr-1",                
                 { "w-[35rem] ": size === "3xl" },
                 { "w-[34rem] ": size === "2xl" },
                 { "w-[33rem] ": size === "xl" },

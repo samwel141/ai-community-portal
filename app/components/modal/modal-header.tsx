@@ -31,7 +31,7 @@ export const ModalHeader: FC<ModalHeaderProps> = ({ title, subtitle }) => {
                 type="button"
                 onClick={() => setOpen(false)}
                 className={
-                    "center size-8 absolute -top-5 -right-10 shrink-0 bg-gray-500 p-0 text-textColor hover:opacity-80 focus:ring-primary active:ring-black/10"
+                    "center size-8 absolute -top-5 -right-4 shrink-0  p-0 border-none focus:ring-none text-textColor hover:opacity-80  active:ring-black/10"
                 }
             >
                 <XMarkIcon strokeWidth={1.8} className={"size-6"} />

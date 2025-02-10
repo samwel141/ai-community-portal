@@ -11,11 +11,11 @@ const Label: FC<LabelProps> = ({ htmlFor, label, className, optional }) => (
     <label
         htmlFor={htmlFor}
         className={cn(
-            "items-between text-[13.5px] font-medium leading-6 text-red-500",
+            "items-between text-[12px] font-[300] leading-6",
             className
         )}
     >
-        <span className="text-gray-400">{label}</span>
+        <span className="text-textColor">{label}</span>
         {optional && (
             <small className="font-light tracking-wide text-textColor">
                 ( Optional )

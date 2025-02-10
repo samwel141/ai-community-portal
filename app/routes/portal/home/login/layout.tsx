@@ -6,7 +6,7 @@ const LoginFormLayout = () => {
     const { open, closeModal } = useRouteModal();
     return (
         <Modal open={open} onClose={closeModal}>
-            <Modal.Panel size={"xs"} className={"md:w-[30rem]"}>
+            <Modal.Panel size={"xs"} className={"md:w-[30rem] pb-[3rem]"}>
                 <Modal.Header
                     title={"Sign in"}
                     subtitle={""}

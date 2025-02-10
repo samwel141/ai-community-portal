@@ -54,12 +54,12 @@ const Modal = ({ open, onClose, children, top = "3xl" }: DialogProps) => {
                         { "p-[5vh] 2xl:pt-[10vh] ": top === "lg" },
                         { "p-[4vh] 2xl:pt-[10vh] ": top === "md" },
                         { "p-[3vh] 2xl:pt-[10vh] ": top === "sm" },
-                        { "p-auto 2xl:pt-[10vh]": top === "xs" },
+                        { "p-[3vh] 2xl:pt-[10vh]": top === "xs" },
                     )}
                 >
                     <Transition.Child
                         as={Fragment}
-                        enter="ease-out duration-200 "
+                        enter="ease-out duration-200"
                         enterFrom="opacity-0"
                         enterTo="opacity-100 "
                         leave="ease-in duration-200"
