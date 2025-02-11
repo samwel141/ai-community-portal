@@ -24,7 +24,7 @@ export const ModalHeader: FC<ModalHeaderProps> = ({ title, subtitle }) => {
                 titleClassName={"text-lg text-textColor pb-1"}
                 title={title}
                 subtitle={subtitle}
-                subtitleClassName={"text-dark-green order-last "}
+                subtitleClassName={"text-textColor order-last "}
             />
 
             <Button

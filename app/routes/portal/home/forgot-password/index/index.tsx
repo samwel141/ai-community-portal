@@ -12,31 +12,32 @@ import renderFormField from "~/utils/render-form-field";
 import { requireToken } from "~/utils/session.server";
 import { ModalFormError } from "~/components/modal/modal-form-error";
 import { Button } from "~/components/button";
-import useManageLoginForm from "./manage-login-form";
+import useManageLoginForm, { ForgotPasswordFormType } from "./manage-login-form";
 import { LoginFormType } from "~/api/login/login-form-schema";
+import useManageForgotPasswordForm from "./manage-login-form";
 
 export const action = async ({ request }: ActionFunctionArgs) => {
     const token = await requireToken(request);
     const formData = await getRequestFormData<LoginFormType>(request);
     
-    const [error] = await post("/auth/login", formData, token);
+    const [error] = await post("/auth/forgot-password", formData, token);
     if (error) return formError(error);
 
     return redirectWithSuccess(
         `/portal/home`,
-        "Login Successfully"
+        "Get Password from your Email Successfully"
     );
 };
 
 const LoginForm = () => {
-    const { handleSubmit, fields: formFields } = useManageLoginForm();
+    const { handleSubmit, formFields } = useManageForgotPasswordForm();
 
     const submit = useSubmitData();
     const { isBusy } = useNavigationState();
 
-    const onSubmit = (formData: LoginFormType) => {
+    const onSubmit = (formData: ForgotPasswordFormType) => {
         // submit(formData);
-        console.log("Login",formData);
+        console.log("Forgot Password",formData);
     };
 
     return (
@@ -61,24 +62,11 @@ const LoginForm = () => {
                             "w-full bg-textColor text-gray-900 rounded-lg py-1.5 text-sm md:text-base md:py-2.5 md:px-4"
                         }
                     >
-                        Sign in
+                        Submit
                     </Button>
                 </div>
                 <div>
-                    <div className="flex gap-2 md:gap-4">
-                        <Link
-                            className="underline text-textColor text-sm hover:opacity-90 border-none focus:ring-0"
-                            to="home/login"
-                        >
-                            Sign up
-                        </Link>
-                        <Link
-                            className="focus:ring-0 underline text-textColor text-sm hover:opacity-90 border-none"
-                            to="/portal/home/forgot-password"
-                        >
-                            Forgot Password?
-                        </Link>
-                    </div>
+                  
                 </div>
             </div>
         </form>

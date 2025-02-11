@@ -39,10 +39,10 @@ const ContactForm = () => {
     return (
         <div className="md:mt-[8rem] md:mb-[8rem]">
             <h1 className="pl-6 text-xl text-accent font-bold md:pl-[30%] md:pb-2">Get in Touch</h1>
-            <div className="flex flex-col md:flex-row justify-center align-center items-center w-[90%] md:w-[50%] md:max-w-5xl mx-auto gap-6">
+            <div className="flex flex-col md:flex-row justify-center align-center items-center w-[90%] md:w-[50%] md:max-w-5xl mx-auto gap-6 md:gap-12">
                 <form
                     onSubmit={handleSubmit(onSubmit)}
-                    className="space-y-7 w-full md:w-1/2 md:w-3/4"
+                    className="space-y-7 w-full md:w-1/2"
                 >
 
                     <div className="grid sm:grid-cols-2 gap-4 pt-4">
@@ -71,8 +71,8 @@ const ContactForm = () => {
                     </div>
                 </form>
 
-                <div className="flex flex-col w-full mb-12 md:w-1/4 text-textColor justify-center md:justify-start align-center md:align-start items-center md:items-start">
-                    <h1 className="font-bold text-lg mt-8 md:mt-10 md:text-xl text-textColor sm:text-base">
+                <div className="flex flex-col w-full mb-12 md:w-1/4 ml-1 md:ml-[6rem] text-textColor justify-center md:justify-start align-center md:align-start items-center md:items-start">
+                    <h1 className="font-[400] text-lg mt-8 md:mt-10 md:text-xl text-textColor sm:text-base">
                         ADDRESS
                     </h1>
                     <div className="text-center md:text-left">

@@ -20,7 +20,7 @@ const AuthButton = () => {
     return (
         <div>
             {
-                !authUser ? (
+                authUser ? (
                     <div className="flex items-center gap-3">
                         <div>
                             <Button

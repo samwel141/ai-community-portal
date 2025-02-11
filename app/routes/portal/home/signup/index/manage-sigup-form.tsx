@@ -1,4 +1,5 @@
 import { zodResolver } from "@hookform/resolvers/zod";
+import { log } from "node:console";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { FormField } from "~/utils/render-form-field";
@@ -8,19 +9,34 @@ import { NoneEmptyStringSchema, OptionalEmailSchema, PositiveNumberSchema } from
 
 // ------------------------ Validation Schema -----------------------------
 
+const passwordSchema = NoneEmptyStringSchema("password");
+
 const SignUpFormSchema = z.object({
-    username: NoneEmptyStringSchema("Username"),
-    firstname: NoneEmptyStringSchema("firstname"),
-    lastname: NoneEmptyStringSchema("lastname"),
-    gender: PositiveNumberSchema("gender"),
-    email: OptionalEmailSchema,
-    password: NoneEmptyStringSchema("password"),
-    confirmPassword: NoneEmptyStringSchema("confirmPassword")
-})
+  username: NoneEmptyStringSchema("Username"),
+  firstname: NoneEmptyStringSchema("firstname"),
+  lastname: NoneEmptyStringSchema("lastname"),
+  gender: PositiveNumberSchema("gender"),
+  email: OptionalEmailSchema,
+  password: passwordSchema,
+  confirmPassword: NoneEmptyStringSchema("confirmPassword"),
+}).refine((data) => data.password === data.confirmPassword, {
+  message: "Passwords do not match",
+});
+
 type SignUpFormType = z.infer<typeof SignUpFormSchema>
 
 // ------------------------ End Validation Schema --------------------------
 
+
+export enum Gender {
+    MALE = 1,
+    FEMALE,
+}
+
+const genderMap: Record<Gender, string> = {
+    [Gender.MALE]: "Male",
+    [Gender.FEMALE]: "Female",
+};
 
 const useManageSignUpForm = () => {
     const {
@@ -30,6 +46,8 @@ const useManageSignUpForm = () => {
     } = useForm<SignUpFormType>({
         resolver: zodResolver(SignUpFormSchema),
     });
+
+    console.log(["errors", errors]);
 
     const fields: FormField<SignUpFormType>[] = [
         {
@@ -67,7 +85,16 @@ const useManageSignUpForm = () => {
             label: "Gender",
             inputType: "select",
             register,
-            options: [],
+            options: [
+                {
+                    value: Gender.MALE,
+                    label: genderMap[Gender.MALE],
+                },
+                {
+                    value: Gender.FEMALE,
+                    label: genderMap[Gender.FEMALE],
+                },
+            ],
             placeholder: "Select Gender",
             className: "bg-primary text-textColor",
             wrapperClassName: "bg-primary text-textColor",
@@ -77,7 +104,6 @@ const useManageSignUpForm = () => {
             name: "email",
             label: "Email",
             inputType: "textInput",
-            type: "password",
             register,
             options: [],
             placeholder: "Enter your Email",

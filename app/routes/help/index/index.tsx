@@ -6,37 +6,26 @@ const Help = () => {
 
   const data = [
     {
-      title: 'Getting Started',
-      description: 'Learn how to navigate the platform and get started with your first project.'
+      title: 'Report',
+      description: 'Learn how to report any issues or incidents that you encounter while using the platform.'
     },
     {
-      title: 'FAQs',
-      description: 'Frequently asked questions about the platform and how to use it.'
+      title: 'Account Settings',
+      description: 'Find out how to manage your account settings, including updating your profile information and changing your password.'
     },
     {
-      title: 'Troubleshooting',
-      description: 'Common issues and solutions to help you troubleshoot any problems you may encounter.'
+      title: 'Safety and Security',
+      description: 'Learn about the measures we take to ensure the safety and security of our users and their data.'
     },
     {
-      title: 'Glossary',
-      description: 'A list of terms and definitions to help you understand the platform and its features.'
+      title: 'Privacy',
+      description: 'Read about our privacy policy and how we protect your personal information.'
     },
     {
-      title: 'Tutorials',
-      description: 'Step-by-step guides on how to use the platform and its features.'
+      title: 'Policies',
+      description: 'View our terms and conditions, as well as our other policies and guidelines.'
     },
-    {
-      title: 'API Documentation',
-      description: 'Technical documentation for developers who want to integrate the platform with their own applications.'
-    },
-    {
-      title: 'API Documentation',
-      description: 'Technical documentation for developers who want to integrate the platform with their own applications.'
-    },
-    {
-      title: 'API Documentation',
-      description: 'Technical documentation for developers who want to integrate the platform with their own applications.'
-    }
+   
   ];
 
   return (
@@ -45,9 +34,9 @@ const Help = () => {
         <div className="flex justify-center my-4 md:my-[4rem]">
         <SearchBox className="w-[100%] md:w-[140%]"/>
         </div>
-        <div className="flex flex-wrap gap-2 md:gap-6 w-[95%] md:w-[80%] justify-center mx-auto">
+        <div className="flex flex-wrap gap-2 md:gap-[4rem] w-[95%] md:w-[75%] justify-center mx-auto">
           {data.map(({ title, description }, index) => (
-            <div key={index} className="flex flex-col min-h-[12rem] max-w-[12rem] align-center gap-2 md:gap-4 text-textColor border border-textColor p-2 md:px-8">
+            <div key={index} className="flex flex-col min-h-[12rem] max-w-[16rem] align-center gap-2 md:gap-4 text-textColor border border-textColor p-2 md:p-8">
               <h1 className="text-sm text-center font-bold">{title}</h1>
               <p className="text-sm text-center text-gray-300">{description}</p>
             </div>

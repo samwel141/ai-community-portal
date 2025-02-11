@@ -18,12 +18,12 @@ import { LoginFormType } from "~/api/login/login-form-schema";
 export const action = async ({ request }: ActionFunctionArgs) => {
     const token = await requireToken(request);
     const formData = await getRequestFormData<LoginFormType>(request);
-    const [error] = await post("/auth/login", formData, token);
+    const [error] = await post("/auth/signup", formData, token);
     if (error) return formError(error);
 
     return redirectWithSuccess(
-        `/portal/home`,
-        "New Adjust Reported Successfully"
+        `/portal/home/login`,
+        "Registered Successfully"
     );
 };
 
@@ -34,7 +34,8 @@ const SignUpForm = () => {
     const { isBusy } = useNavigationState();
 
     const onSubmit = (formData: LoginFormType) => {
-        submit(formData);
+        console.log(formData);
+        // submit(formData);
     };
 
     return (
@@ -64,7 +65,7 @@ const SignUpForm = () => {
                     <div className="flex gap-4">
                         <Link
                             className="focus:ring-0 text-underline text-textColor text-xs hover:opacity-90 border-none underline"
-                            to="/portal/home/login"
+                            to=""
                         >
                             Sign in
                         </Link>

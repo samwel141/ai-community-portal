@@ -9,20 +9,23 @@ import { Button } from "~/components/button";
 import { EditorSmall } from "~/components/tip-tap-editor";
 import useSubmitData from "~/hooks/useSubmitData";
 import { ActionFunctionArgs } from "@remix-run/node";
-import { ApiRequest } from "~/utils/api-request";
-
-
+import { requireToken } from "~/utils/session.server";
+import { getRequestFormData } from "~/utils/get-request-form-data.server";
+import { post } from "~/utils/httpclient";
+import { formError } from "~/utils/from-error";
+import { redirectWithSuccess } from "remix-toast";
 
 
 export const action = async ({ request }: ActionFunctionArgs) => {
-    const apiRequest = await ApiRequest.init(request);
+    const token = await requireToken(request);
+    const formData = await getRequestFormData<ProfileFormType>(request);
+    
+    const [error] = await post("/auth/profile", formData, token);
+    if (error) return formError(error);
 
-    return await apiRequest.post<ProfileFormType>(
-        "/profile/update",
-        {
-            successMessage: "Profile updated successfully",
-            onSuccessRedirect: "/portal/home",
-        }
+    return redirectWithSuccess(
+        `/portal/home`,
+        "Profile Updated Successfully"
     );
 };
 
@@ -60,7 +63,7 @@ const ProfileInfoForm = () => {
     const submit = useSubmitData();
     const onSubmit = (formData: ProfileFormType) => {
         console.log(formData);
-        submit(formData);
+        // submit(formData);
     };
 
     return (

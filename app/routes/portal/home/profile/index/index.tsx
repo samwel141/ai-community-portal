@@ -7,8 +7,8 @@ import { useGetProfileDetails } from "~/routes/portal/home/profile/resources/ind
 
 const ProfilePage = () => {
 
-// const { data: profileDat } = useGetProfileDetails()
-// console.log(["profileDat",profileDat]);
+    // const { data: profileDat } = useGetProfileDetails()
+    // console.log(["profileDat",profileDat]);
 
 
     const navigate = useNavigate();
@@ -21,7 +21,7 @@ const ProfilePage = () => {
         phone: "012-345-6789",
         bio: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea quidem pariatur, numquam qui et enim amet veritatis illo nisi eum! Ea quidem pariatur, numquam qui et enim amet veritatis illo nisi eum!",
         profileImage: "https://picsum.photos/200/300",
-      
+
         tabContent: {
             Education: "Education Content",
             Achievements: "Achievements Content",
@@ -38,7 +38,7 @@ const ProfilePage = () => {
                     <img
                         src={profileData?.profileImage}
                         alt="Profile Picture"
-                        className="rounded-full w-[12rem] h-[12rem] md:w-[16rem] md:h-[8rem]"
+                        className="rounded-full w-[12rem] h-[12rem] md:w-[15rem] md:h-[8.3rem]"
                     />
                 </div>
                 <div>
@@ -52,9 +52,18 @@ const ProfilePage = () => {
                         <p className="text-textColor">{profileData?.phone}</p>
                     </div>
                     <div className="flex flex-col mt-2">
-                        <p className="text-[#CED0DC]">{profileData?.bio}</p>
+                        <p className="text-[#CED0DC] font-[300] text-sm">{profileData?.bio}</p>
+                    </div>
+                    <div className="flex flex-col mt-2 gap-2">
+                        <div>
+                            <p className="text-textColor">Sectors: Bussiness</p>
+                        </div>
+                        <div>
+                            <p className="text-textColor">Technologes: React</p>
+                        </div>
                     </div>
                 </div>
+
             </div>
 
             <div className="flex flex-col gap-4 md:hidden">
@@ -71,7 +80,15 @@ const ProfilePage = () => {
                     </div>
                 </div>
                 <div>
-                    <p className="text-[#CED0DC] p-2">{profileData?.bio}</p>
+                    <p className="text-[#CED0DC] text-sm font-light p-2">{profileData?.bio}</p>
+                </div>
+                <div className="flex flex-col py-4 gap-2">
+                    <div>
+                        <p className="text-textColor">Sectors: Business</p>
+                    </div>
+                    <div>
+                        <p className="text-textColor">Technologes: React</p>
+                    </div>
                 </div>
             </div>
 
@@ -82,9 +99,8 @@ const ProfilePage = () => {
                             <Tab key={tab} as={Fragment}>
                                 {({ selected }) => (
                                     <button
-                                        className={`pb-1 mx-2 border-b-2 transition-all ${
-                                            selected ? "border-b-accent text-accent" : "border-transparent text-textColor"
-                                        }`}
+                                        className={`pb-1 mx-2 border-b-2 transition-all ${selected ? "border-b-accent text-accent" : "border-transparent text-textColor"
+                                            }`}
                                     >
                                         {tab}
                                     </button>
@@ -96,7 +112,7 @@ const ProfilePage = () => {
                     <Tab.Panels className="mt-4 text-textColor">
                         {tabs.map((tab) => (
                             <Tab.Panel key={tab}>
-                                <p className="p-4">{profileData.tabContent[tab]}</p>
+                                <p className="p-4">{profileData?.tabContent[tab]}</p>
                             </Tab.Panel>
                         ))}
                     </Tab.Panels>
@@ -109,7 +125,7 @@ const ProfilePage = () => {
                     onClick={() => navigate("/portal/home/profile/finish-profile-setup")}
                     className="border border-gray-400 rounded-md px-[6rem] text-xs bg-primary hover:opacity-80"
                 >
-                    Finish Your Profile
+                    Update Your Profile
                 </Button>
             </div>
         </div>
