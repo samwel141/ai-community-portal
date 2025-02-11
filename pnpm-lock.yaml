@@ -29,6 +29,9 @@ importers:
       '@faker-js/faker':
         specifier: ^9.2.0
         version: 9.4.0
+      '@fontsource/ibm-plex-sans':
+        specifier: ^5.1.1
+        version: 5.1.1
       '@fontsource/jetbrains-mono':
         specifier: ^5.1.2
         version: 5.1.2
@@ -801,6 +804,9 @@ packages:
 
   '@floating-ui/utils@0.2.9':
     resolution: {integrity: sha512-MDWhGtE+eHw5JW7lq4qhc5yRLS11ERl1c7Z6Xd0a58DozHES6EnNNwUWbMiG4J9Cgj053Bhk8zvlhFYKVhULwg==}
+
+  '@fontsource/ibm-plex-sans@5.1.1':
+    resolution: {integrity: sha512-s6xHuHCYxZbIZV0Qchw+EoucPYWCP3PgLs9+oF3u1kLQKwabWaUC3Fm30y6n3VIMCqR89dpkcS8LTqH/IGTDDQ==}
 
   '@fontsource/jetbrains-mono@5.1.2':
     resolution: {integrity: sha512-muYZK6W3NTrKpKTjoF2dkrtMjXLlPZhniLiLjMmfegRibl2L6jUJh9gB6UcbcZs3zHdIYTmzMkXNbNoI2kXX3Q==}
@@ -5579,6 +5585,8 @@ snapshots:
       tabbable: 6.2.0
 
   '@floating-ui/utils@0.2.9': {}
+
+  '@fontsource/ibm-plex-sans@5.1.1': {}
 
   '@fontsource/jetbrains-mono@5.1.2': {}
 

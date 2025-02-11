@@ -1,31 +1,22 @@
-@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap');
-@import "@fontsource/jetbrains-mono";
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;700&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-
-@layer base {
-  .font-jetbrains-mono {
-    font-family: "JetBrains Mono", monospace;
-  }
-}
-
 @layer base {
   body {
-    @apply font-jetbrains-mono;
-    @apply bg-primary;
+    @apply font-plex bg-primary;
   }
 }
 
 @layer components {
   .center {
-    @apply flex justify-center items-center
+    @apply flex justify-center items-center;
   }
 
   .items-between {
-    @apply flex justify-between items-center
+    @apply flex justify-between items-center;
   }
 }
 
@@ -35,13 +26,9 @@ input:-webkit-autofill {
   -webkit-text-fill-color: #000 !important;
 }
 
-
-
 input:-moz-autofill {
   background-color: transparent !important;
 }
-
-
 
 input:focus {
   background-color: white !important;
