@@ -4,6 +4,7 @@ import { Fragment } from "react/jsx-runtime";
 import { Button } from "~/components/button";
 import { useNavigate } from "@remix-run/react";
 import { useGetProfileDetails } from "~/routes/portal/home/profile/resources/index";
+import SocialLinks from "~/components/social-links";
 
 const ProfilePage = () => {
 
@@ -30,15 +31,19 @@ const ProfilePage = () => {
     };
 
     return (
-        <div className="flex-col p-1 md:p-4 gap-4 md:gap-12">
+        <div className="flex-col relative p-1 md:p-4 gap-4 md:gap-12">
             <PageHeader title="Profile" hasFilter={false} hasSearch={false} />
+
+            <div className="absolute top-[6%] md:top-[20%] right-[10%]">
+                <SocialLinks/>
+            </div>
 
             <div className="hidden md:flex items-center justify-between gap-4 mt-4">
                 <div>
                     <img
                         src={profileData?.profileImage}
                         alt="Profile Picture"
-                        className="rounded-full w-[12rem] h-[12rem] md:w-[15rem] md:h-[8.3rem]"
+                        className="rounded-full w-[12rem] h-[12rem] md:w-[10rem] md:h-[8.3rem]"
                     />
                 </div>
                 <div>

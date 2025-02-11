@@ -13,6 +13,7 @@ import { requireToken } from "~/utils/session.server";
 import { ModalFormError } from "~/components/modal/modal-form-error";
 import { Button } from "~/components/button";
 import useManageContactForm, { ContactFormType } from "~/routes/help/contact-us/manage-contact-form";
+import SocialLinks from "~/components/social-links";
 
 export const action = async ({ request }: ActionFunctionArgs) => {
     const token = await requireToken(request);
@@ -71,7 +72,7 @@ const ContactForm = () => {
                     </div>
                 </form>
 
-                <div className="flex flex-col w-full mb-12 md:w-1/4 ml-1 md:ml-[6rem] text-textColor justify-center md:justify-start align-center md:align-start items-center md:items-start">
+                <div className="flex flex-col w-full mb-12 md:w-1/3 ml-1 md:ml-[6rem] text-textColor justify-center md:justify-start align-center md:align-start items-center md:items-start">
                     <h1 className="font-[400] text-lg mt-8 md:mt-10 md:text-xl text-textColor sm:text-base">
                         ADDRESS
                     </h1>
@@ -89,7 +90,7 @@ const ContactForm = () => {
                     </div>
                     <div className="mt-6">
                         <p>FIND US</p>
-
+                     <SocialLinks />
                     </div>
                 </div>
             </div>
