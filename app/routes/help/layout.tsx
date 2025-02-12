@@ -6,8 +6,8 @@ const HelpLayout = () => {
 
   return (
     <>
-      <div className="sticky top-0 z-10 bg-primary px-1 md:px-4 flex justify-between items-center gap-4">
-        <Logo className="size-6 md:size-8" />
+      <div className="sticky top-0 z-10 bg-primary px-1 md:px-4 flex justify-between items-center gap-4 h-[4.5rem]">
+        <Logo className="size-5 md:size-6" />
         <div className="flex gap-4 md:gap-8 mr-[4rem] text-textColor justify-start text-lg">
           {location.pathname.includes("/contact-us") && (
             <Link to="/help" className="hover:opacity-80 text-sm">Back</Link>

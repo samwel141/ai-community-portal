@@ -5,6 +5,7 @@ import { generateUserAccessControlConfig } from "~/providers/access-control/gene
 import AppProvider from "~/providers/app-provider";
 import Sidebar from "~/routes/portal/layouts/sidebar";
 import TopHeader from "~/routes/portal/layouts/top-header";
+import Footer from "./layouts/footer";
 
 export const AuthLayout: FC<{
     children: ReactNode;
@@ -30,6 +31,7 @@ export const AuthLayout: FC<{
                         <section className={"h-full bg-[#232531] flex-1 overflow-y-auto "}>
                             {children}
                         </section>
+                        <Footer/>
                     </section>
                 </section>
             </AccessControlProvider>

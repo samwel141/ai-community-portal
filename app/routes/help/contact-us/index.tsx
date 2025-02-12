@@ -38,8 +38,8 @@ const ContactForm = () => {
     };
 
     return (
-        <div className="md:mt-[8rem] md:mb-[8rem]">
-            <h1 className="pl-6 text-xl text-accent font-bold md:pl-[30%] md:pb-2">Get in Touch</h1>
+        <div className="">
+            <h1 className="pl-6 text-xl text-accent font-bold md:pl-[25%] md:pb-2">Get in Touch</h1>
             <div className="flex flex-col md:flex-row justify-center align-center items-center w-[90%] md:w-[50%] md:max-w-5xl mx-auto gap-6 md:gap-12">
                 <form
                     onSubmit={handleSubmit(onSubmit)}

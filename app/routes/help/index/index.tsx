@@ -31,9 +31,6 @@ const Help = () => {
   return (
     <PageContainer>
       <div>
-        <div className="flex justify-center my-4 md:my-[4rem]">
-        <SearchBox className="w-[100%] md:w-[140%]"/>
-        </div>
         <div className="flex flex-wrap gap-2 md:gap-[4rem] w-[95%] md:w-[75%] justify-center mx-auto">
           {data.map(({ title, description }, index) => (
             <div key={index} className="flex flex-col min-h-[12rem] max-w-[16rem] align-center gap-2 md:gap-4 text-textColor border border-textColor p-2 md:p-8">

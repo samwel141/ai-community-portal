@@ -14,6 +14,8 @@ import { ModalFormError } from "~/components/modal/modal-form-error";
 import { Button } from "~/components/button";
 import useManageLoginForm from "./manage-sigup-form";
 import { LoginFormType } from "~/api/login/login-form-schema";
+import GoogleButton from "~/components/google-button";
+import { toast } from "sonner";
 
 export const action = async ({ request }: ActionFunctionArgs) => {
     const token = await requireToken(request);
@@ -41,10 +43,17 @@ const SignUpForm = () => {
     return (
         <form
             onSubmit={handleSubmit(onSubmit)}
-            className={"space-y-7 w-full"}
+            className={"space-y-4 w-full"}
         >
+            <div className={"grid grid-cols-2 gap-4"}>
+                {formFields.slice(0, 4).map((field) => (
+                    <Fragment key={field.name}>
+                        {renderFormField(field)}
+                    </Fragment>
+                ))}
+            </div>
             <div className={"space-y-2"}>
-                {formFields.map((field) => (
+                {formFields.slice(4).map((field) => (
                     <Fragment key={field.name}>
                         {renderFormField(field)}
                     </Fragment>
@@ -56,7 +65,7 @@ const SignUpForm = () => {
                 <div>
                     <Button
                         loading={isBusy}
-                        className={"w-full bg-textColor text-gray-900 rounded-lg py-2.5 text-sm"}
+                        className={"w-full bg-textColor text-gray-900 rounded-lg py-2 text-sm"}
                     >
                         Sign Up
                     </Button>
@@ -72,6 +81,11 @@ const SignUpForm = () => {
                     </div>
                 </div>
             </div>
+            <div className="flex justify-center">
+                <GoogleButton onClick={function (): void {
+                    toast.error("Function not implemented.");
+                } } />
+            </div>
         </form>
     );
 };
@@ -84,3 +98,4 @@ export const ErrorBoundary = () => {
         </>
     );
 };
+
