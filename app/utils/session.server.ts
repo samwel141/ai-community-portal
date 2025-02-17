@@ -3,6 +3,7 @@ import { AuthUserSchemaWithRoleType } from "~/api/login/auth-user-schema";
 import { db, saveOrUpdateUser } from "~/utils/db.server";
 import { env } from "~/utils/env.server";
 import { safeRedirect, safeRedirectWithSuccess } from "~/utils/request.server";
+import {toast} from "sonner";
 
 /**
  * The function to create a user session with a given user ID and redirect URL
@@ -19,7 +20,10 @@ export async function createUserSession(
 ) {
     const session = await storage.getSession();
 
-    await saveOrUpdateUser(authUser); //store user info on file
+    console.log(["Auth user in server"], authUser);
+    toast.success("message")
+
+    await saveOrUpdateUser(authUser);
     session.set("userId", authUser.id);
 
     const message = successMessage ?? `Hi ${authUser.fullName}!, Welcome back.`;
@@ -63,21 +67,22 @@ function getSession(request: Request) {
  * If not, it will redirect the user to the login page with a redirect parameter.
  *
  * @param request - The request object containing user information
- * @param redirectTo - The URL to redirect to if user ID is not present
  * @throws Will throw an error if user ID is not present
  * @returns The user ID if present
  */
 export async function requireUser(
     request: Request,
-    redirectTo: string = new URL(request.url).pathname
 ) {
     const userId = await getUserId(request);
-    const user = await db.getByID(String(userId));
-
-    if (!user || !userId) {
-        const searchParams = new URLSearchParams([["redirectTo", redirectTo]]);
-        throw safeRedirect(`/login?${searchParams}`);
+    if (!userId) {
+        return null;
     }
+
+    const user = await db.getByID(String(userId));
+    if (!user) {
+        return null;
+    }
+
     return user;
 }
 
@@ -98,7 +103,7 @@ export async function logout(request: Request): Promise<Response> {
 
 const storage = createCookieSessionStorage({
     cookie: {
-        name: "agricom-session",
+        name: "auth-session",
         // secure: process.env.NODE_ENV === "production",
         secrets: [env.SESSION_SECRET],
         sameSite: "lax",
@@ -116,7 +121,7 @@ const storage = createCookieSessionStorage({
  */
 export const requireToken = async (request: Request): Promise<string> => {
     const user = await requireUser(request);
-    return user.token;
+    return user!.token;
 };
 
 /**

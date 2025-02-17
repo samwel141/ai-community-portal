@@ -1,32 +1,28 @@
-import { ActionFunctionArgs } from "@remix-run/node";
+import { ActionFunctionArgs, LoaderFunctionArgs, redirect } from "@remix-run/node";
 import { Link } from "@remix-run/react";
 import { Fragment } from "react";
-import { redirectWithSuccess } from "remix-toast";
 import GeneralErrorBoundary from "~/components/error-boundary";
 import { useNavigationState } from "~/hooks/useNavigationState";
 import useSubmitData from "~/hooks/useSubmitData";
-import { formError } from "~/utils/from-error";
-import { getRequestFormData } from "~/utils/get-request-form-data.server";
-import { post } from "~/utils/httpclient";
 import renderFormField from "~/utils/render-form-field";
-import { requireToken } from "~/utils/session.server";
+import { requireUserOrNull } from "~/utils/session.server";
 import { ModalFormError } from "~/components/modal/modal-form-error";
 import { Button } from "~/components/button";
 import useManageLoginForm from "./manage-login-form";
 import { LoginFormType } from "~/api/login/login-form-schema";
+import { handleLogin } from "~/api/login/handle-login";
 
 export const action = async ({ request }: ActionFunctionArgs) => {
-    const token = await requireToken(request);
-    const formData = await getRequestFormData<LoginFormType>(request);
-    
-    const [error] = await post("/auth/login", formData, token);
-    if (error) return formError(error);
-
-    return redirectWithSuccess(
-        `/portal/home`,
-        "Login Successfully"
-    );
+    return handleLogin(request);
 };
+
+export const loader = async ({ request }: LoaderFunctionArgs) => {
+    const user = await requireUserOrNull(request);
+
+    if (user) return redirect("/portal/home");
+    return null;
+};
+
 
 const LoginForm = () => {
     const { handleSubmit, fields: formFields } = useManageLoginForm();
@@ -35,8 +31,7 @@ const LoginForm = () => {
     const { isBusy } = useNavigationState();
 
     const onSubmit = (formData: LoginFormType) => {
-        // submit(formData);
-        console.log("Login",formData);
+        submit(formData);
     };
 
     return (
@@ -68,7 +63,7 @@ const LoginForm = () => {
                     <div className="flex gap-2 md:gap-4">
                         <Link
                             className="underline text-textColor text-sm hover:opacity-90 border-none focus:ring-0"
-                            to="home/login"
+                            to="/portal/home/signup"
                         >
                             Sign up
                         </Link>

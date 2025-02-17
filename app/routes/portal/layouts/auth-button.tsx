@@ -11,6 +11,8 @@ const AuthButton = () => {
     const avatarUrl =
         authUser?.avatar ?? generateAvatar(`${authUser?.fullName}`);
 
+        console.log(["Auth User"], authUser);
+
     const navigate = useNavigate();
 
     const handleLogout = () => {
@@ -20,11 +22,11 @@ const AuthButton = () => {
     return (
         <div>
             {
-                authUser ? (
+                !authUser ? (
                     <div className="flex items-center gap-3">
                         <div>
                             <Button
-                                className="bg-accent hover:opacity-80 focus:ring-0"
+                                className="bg-accent hidden md:block hover:opacity-80 focus:ring-0"
                                 onClick={() => navigate("home/signup")}
                             >
                                 Sign up
@@ -45,7 +47,7 @@ const AuthButton = () => {
                     <DropdownMenu>
                         <DropdownMenu.Trigger>
                             <div className="flex items-center gap-2">
-                                <p className="hidden sm:block text-sm text-textColor">Samwel</p>
+                                <p className="hidden sm:block text-sm text-textColor">{authUser.fullName}</p>
                                 <Avatar
                                     Icon={UserIcon}
                                     imageUrl={avatarUrl}

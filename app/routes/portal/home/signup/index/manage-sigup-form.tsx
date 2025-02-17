@@ -1,5 +1,4 @@
 import { zodResolver } from "@hookform/resolvers/zod";
-import { log } from "node:console";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { FormField } from "~/utils/render-form-field";
@@ -18,12 +17,12 @@ const SignUpFormSchema = z.object({
   gender: PositiveNumberSchema("gender"),
   email: OptionalEmailSchema,
   password: passwordSchema,
-  confirmPassword: NoneEmptyStringSchema("confirmPassword"),
-}).refine((data) => data.password === data.confirmPassword, {
+  confirm_password: NoneEmptyStringSchema("confirmPassword"),
+}).refine((data) => data.password === data.confirm_password, {
   message: "Passwords do not match",
 });
 
-type SignUpFormType = z.infer<typeof SignUpFormSchema>
+export type SignUpFormType = z.infer<typeof SignUpFormSchema>
 
 // ------------------------ End Validation Schema --------------------------
 
@@ -121,13 +120,13 @@ const useManageSignUpForm = () => {
             hasError: !!errors.password?.message,
         },
         {
-            name: "confirmPassword",
+            name: "confirm_password",
             label: "Confirm Password",
             inputType: "textInput",
             type: "password",
             register,
             placeholder: "Confirm password",
-            hasError: !!errors.confirmPassword?.message,
+            hasError: !!errors.confirm_password?.message,
         },
     ];
 

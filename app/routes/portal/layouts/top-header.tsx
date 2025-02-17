@@ -8,8 +8,6 @@ import AuthButton from "~/routes/portal/layouts/auth-button";
 import { sidebarMenuList } from "./sidebar-menu-list";
 
 const TopHeader = () => {
-    const { pathname } = useLocation();
-    const pageName = pathname.split("/")[2] || "Home";
     const navigate = useNavigate();
 
 

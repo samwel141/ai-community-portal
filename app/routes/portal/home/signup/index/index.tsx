@@ -12,15 +12,14 @@ import renderFormField from "~/utils/render-form-field";
 import { requireToken } from "~/utils/session.server";
 import { ModalFormError } from "~/components/modal/modal-form-error";
 import { Button } from "~/components/button";
-import useManageLoginForm from "./manage-sigup-form";
-import { LoginFormType } from "~/api/login/login-form-schema";
 import GoogleButton from "~/components/google-button";
 import { toast } from "sonner";
+import useManageSignUpForm, {SignUpFormType} from "~/routes/portal/home/signup/index/manage-sigup-form";
 
 export const action = async ({ request }: ActionFunctionArgs) => {
-    const token = await requireToken(request);
-    const formData = await getRequestFormData<LoginFormType>(request);
-    const [error] = await post("/auth/signup", formData, token);
+
+    const formData = await getRequestFormData<SignUpFormType>(request);
+    const [error] = await post("/profile/signup/", formData);
     if (error) return formError(error);
 
     return redirectWithSuccess(
@@ -30,14 +29,14 @@ export const action = async ({ request }: ActionFunctionArgs) => {
 };
 
 const SignUpForm = () => {
-    const { handleSubmit, fields: formFields } = useManageLoginForm();
+    const { handleSubmit, fields: formFields } = useManageSignUpForm();
 
     const submit = useSubmitData();
     const { isBusy } = useNavigationState();
 
-    const onSubmit = (formData: LoginFormType) => {
-        console.log(formData);
-        // submit(formData);
+    const onSubmit = (formData: SignUpFormType) => {
+        console.log("Form Data for submit",formData);
+        submit(formData);
     };
 
     return (
