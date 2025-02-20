@@ -11,7 +11,6 @@ const AuthButton = () => {
     const avatarUrl =
         authUser?.avatar ?? generateAvatar(`${authUser?.fullName}`);
 
-        console.log(["Auth User"], authUser);
 
     const navigate = useNavigate();
 
@@ -50,7 +49,7 @@ const AuthButton = () => {
                                 <p className="hidden sm:block text-sm text-textColor">{authUser.fullName}</p>
                                 <Avatar
                                     Icon={UserIcon}
-                                    imageUrl={avatarUrl}
+                                    imageUrl={generateAvatar(authUser.fullName)}
                                     className={
                                         "size-8 rounded-full border border-[#D8DBD2] text-dark-green"
                                     }

@@ -10,7 +10,7 @@ import { SexType } from "~/utils/zod-common";
  * @returns {AccessControlConfig} The user's access control configuration, which includes roles, permissions, and attributes.
  */
 export const generateUserAccessControlConfig = (
-    authUser?: AuthUserSchemaWithRoleType["data"]
+    authUser?: AuthUserSchemaWithRoleType["data"] |  null
 ): AccessControlConfig => {
     const userRoles = authUser
         ? authUser.role.map((role) => role.name.toLowerCase())

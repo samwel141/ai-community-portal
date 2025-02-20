@@ -35,7 +35,6 @@ const SignUpForm = () => {
     const { isBusy } = useNavigationState();
 
     const onSubmit = (formData: SignUpFormType) => {
-        console.log("Form Data for submit",formData);
         submit(formData);
     };
 
