@@ -31,7 +31,6 @@ export const sampleAuthUserData = {
  */
 export const login = async (data: LoginFormType) => {
     return await post("/profile/signin/", data);
-    // console.log("[data]", data);
 
     // await fakeNetwork(1000);
     // return [null, sampleAuthUserData] as SafeExecuteReturnType<unknown>;

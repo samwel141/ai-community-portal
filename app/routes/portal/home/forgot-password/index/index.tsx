@@ -36,8 +36,7 @@ const LoginForm = () => {
     const { isBusy } = useNavigationState();
 
     const onSubmit = (formData: ForgotPasswordFormType) => {
-        // submit(formData);
-        console.log("Forgot Password",formData);
+        submit(formData);
     };
 
     return (

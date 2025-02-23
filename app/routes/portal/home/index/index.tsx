@@ -4,6 +4,7 @@ import { FC } from "react";
 import PageContainer from "~/components/page-container";
 
 export const loader: LoaderFunction = async () => {
+
   return null;
 };
 

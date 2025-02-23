@@ -3,7 +3,6 @@ import { AuthUserSchemaWithRoleType } from "~/api/login/auth-user-schema";
 import { db, saveOrUpdateUser } from "~/utils/db.server";
 import { env } from "~/utils/env.server";
 import { safeRedirect, safeRedirectWithSuccess } from "~/utils/request.server";
-import {toast} from "sonner";
 
 /**
  * The function to create a user session with a given user ID and redirect URL
@@ -19,9 +18,6 @@ export async function createUserSession(
     successMessage?: string
 ) {
     const session = await storage.getSession();
-
-    console.log(["Auth user in server"], authUser);
-    toast.success("message")
 
     await saveOrUpdateUser(authUser);
     session.set("userId", authUser.id);
@@ -59,7 +55,7 @@ export async function getUserId(request: Request) {
  * @return The session object associated with the provided request.
  */
 function getSession(request: Request) {
-    return storage.getSession(request.headers.get("Cookie"));
+    return storage.getSession(request.headers.get("cookie"));
 }
 
 /**
@@ -103,7 +99,7 @@ export async function logout(request: Request): Promise<Response> {
 
 const storage = createCookieSessionStorage({
     cookie: {
-        name: "auth-session",
+        name: "user-session",
         // secure: process.env.NODE_ENV === "production",
         secrets: [env.SESSION_SECRET],
         sameSite: "lax",
@@ -117,7 +113,7 @@ const storage = createCookieSessionStorage({
  * Retrieves the token of the authenticated user.
  *
  * @param {Request} request - The request object representing the HTTP request made.
- * @returns {Promise<string>} - A promise that resolves to the token of the authenticated user.
+ * @returns {Promise<string>}` - A promise that resolves to the token of the authenticated user.
  */
 export const requireToken = async (request: Request): Promise<string> => {
     const user = await requireUser(request);

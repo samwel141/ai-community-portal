@@ -9,7 +9,7 @@ import Footer from "./layouts/footer";
 
 export const AuthLayout: FC<{
     children: ReactNode;
-    authUser?: AuthUserSchemaWithRoleType["data"];
+    authUser?: AuthUserSchemaWithRoleType["data"] | null;
 }> = ({ children, authUser }) => {
     const accessControlConfig = generateUserAccessControlConfig(authUser);
 

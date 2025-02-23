@@ -39,10 +39,5 @@ export const handleLogin = async (request: Request) => {
         );
 
 
-    const { redirectTo = "/portal/home" } = parseSearchParams<{
-        redirectTo?: string;
-    }>(request.url);
-
-
-    return createUserSession(validatedData, redirectTo);
+    return createUserSession(validatedData, "/portal/home");
 };

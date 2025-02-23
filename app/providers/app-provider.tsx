@@ -3,7 +3,7 @@ import { AuthUserSchemaWithRoleType } from "~/api/login/auth-user-schema";
 import { CacheProvider } from "~/utils/cache/components";
 
 interface AppContextType {
-    authUser?: AuthUserSchemaWithRoleType["data"] | undefined;
+    authUser?: AuthUserSchemaWithRoleType["data"] | null;
 }
 
 export interface AppContextProps extends AppContextType {
