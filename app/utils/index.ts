@@ -1,4 +1,5 @@
 import clsx, { type ClassValue } from "clsx";
+import dayjs from "dayjs";
 import { twMerge } from "tailwind-merge";
 
 /**
@@ -54,10 +55,10 @@ export const cn = (...input: ClassValue[]): string => {
 //  * @param format
 //  * @returns {string} The formatted date string.
 //  */
-// export const formatDate = (
-//     date: string,
-//     format: string = "MMM DD, YYYY"
-// ): string => {
-//     if (!date) throw new Error("Date is required");
-//     return dayjs(date).format(format);
-// };
+export const formatDate = (
+    date: string,
+    format: string = "MMM DD, YYYY"
+): string => {
+    if (!date) throw new Error("Date is required");
+    return dayjs(date).format(format);
+};

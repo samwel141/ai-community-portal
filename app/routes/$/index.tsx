@@ -16,7 +16,7 @@ const PageNotFound: FC<{ className?: string }> = ({ className }) => {
         <section
             className={cn(" h-[95vh] bg-textColor", className)}
         >
-            <div className={" center bg-[#232531] h-full flex-1"}>
+            <div className={" center bg-primary h-full flex-1"}>
                 <GeneralFallbackUI
                     Illustrations={PageNotFoundIllustrations}
                     title={"Page not found"}
@@ -24,8 +24,8 @@ const PageNotFound: FC<{ className?: string }> = ({ className }) => {
                 />
             </div>
 
-            <div className={"text-center text-textColor bg-[#232531] text-xs"}>
-                @tzaicommunity {new Date().getFullYear()}, all rights reserved
+            <div className={"text-center text-textColor bg-primary text-xs"}>
+                @Elimelech Virtuosos International {new Date().getFullYear()}, all rights reserved
             </div>
         </section>
     );

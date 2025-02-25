@@ -1,5 +1,6 @@
 import { z } from "zod";
 import type { EnumLabelValueMap } from "~/types";
+import { formatDate } from ".";
 
 
 export const IdNameSchema = z.object({
@@ -154,25 +155,25 @@ export const PositiveNumberSchema = (fieldName: string) =>
 
 //--------------------------------------------------------------
 
-// export const DateSchema = (label: string) =>
-//     NoneEmptyStringSchema(label)
-//         .refine(
-//             (date: any) => {
-//                 const dateSchema = z.string().date();
-//                 const datetimeSchema = z.string().datetime();
+export const DateSchema = (label: string) =>
+    NoneEmptyStringSchema(label)
+        .refine(
+            (date: any) => {
+                const dateSchema = z.string().date();
+                const datetimeSchema = z.string().datetime();
 
-//                 if (dateSchema.safeParse(date).success) return true;
-//                 else if (datetimeSchema.safeParse(date).success) return true;
-//                 else false;
-//             },
-//             { message: "invalid date" }
-//         )
-//         .transform((date: any) => formatDate(date));
+                if (dateSchema.safeParse(date).success) return true;
+                else if (datetimeSchema.safeParse(date).success) return true;
+                else false;
+            },
+            { message: "invalid date" }
+        )
+        .transform((date: any) => formatDate(date));
 
-// export const DateTimeSchema = (label: string) =>
-//     NoneEmptyStringSchema(label)
-//         .datetime(`${label} must be a valid date time`)
-//         .transform((date: any) => formatDate(date, "MMM DD, YYYY HH:mm"));
+export const DateTimeSchema = (label: string) =>
+    NoneEmptyStringSchema(label)
+        .datetime(`${label} must be a valid date time`)
+        .transform((date: any) => formatDate(date, "MMM DD, YYYY HH:mm"));
 
 // //--------------------------------------------------------------
 

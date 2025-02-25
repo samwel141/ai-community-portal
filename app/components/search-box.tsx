@@ -60,7 +60,7 @@ const SearchBox: FC<SearchBoxProps> = ({
                 className={cn(
                     `w-full 
                     rounded-full border-none bg-secondary border-westar
-                     py-1  pl-10 pr-2 text-sm tracking-wide text-gray-400 outline-none ring-2 ring-transparent 
+                     py-2  pl-10 pr-2 text-sm tracking-wide text-gray-400 outline-none ring-2 ring-transparent 
                     placeholder:text-gray-400 focus:border-secondary w-[10rem] sm:w-[33rem]  focus:ring-secondary/40 2xl:focus:ring-4
                 `,
                     className

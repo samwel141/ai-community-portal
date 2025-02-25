@@ -30,8 +30,8 @@ export const sampleAuthUserData = {
  * @returns - A promise that resolves to the response of the post-request.
  */
 export const login = async (data: LoginFormType) => {
-    return await post("/profile/signin/", data);
+    // return await post("/profile/signin/", data);
 
-    // await fakeNetwork(1000);
-    // return [null, sampleAuthUserData] as SafeExecuteReturnType<unknown>;
+    await fakeNetwork(1000);
+    return [null, sampleAuthUserData] as SafeExecuteReturnType<unknown>;
 };

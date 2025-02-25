@@ -66,21 +66,21 @@ function getSession(request: Request) {
  * @throws Will throw an error if user ID is not present
  * @returns The user ID if present
  */
+
 export async function requireUser(
     request: Request,
+    redirectTo: string = new URL(request.url).pathname
 ) {
     const userId = await getUserId(request);
-    if (!userId) {
-        return null;
-    }
-
     const user = await db.getByID(String(userId));
-    if (!user) {
-        return null;
-    }
 
+    if (!user || !userId) {
+        const searchParams = new URLSearchParams([["redirectTo", redirectTo]]);
+        throw safeRedirect(`/login?${searchParams}`);
+    }
     return user;
 }
+
 
 /**
  * Logs out the user and destroys their session.
@@ -99,7 +99,7 @@ export async function logout(request: Request): Promise<Response> {
 
 const storage = createCookieSessionStorage({
     cookie: {
-        name: "user-session",
+        name: "evi-admin-session",
         // secure: process.env.NODE_ENV === "production",
         secrets: [env.SESSION_SECRET],
         sameSite: "lax",

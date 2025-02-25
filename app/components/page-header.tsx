@@ -39,13 +39,12 @@ const PageHeader: FC<Props> = ({
 
     return (
         <section className={cn("items-between py-2 px-2 md:py-3", className)}>
-            <h1 className={"text-xl text-textColor font-semibold md:text-2xl"}>{title}</h1>
             <Hide condition={!hasSearch}>
             <SearchBox  placeholder={searchPlaceholder}/>
             </Hide>
        
             <div className={cn("flex items-center gap-3 ")}>
-                <Button
+                {/* <Button
                     outline
                     className={cn(
                         "border-westar border gap-1 py-2 text-primary-950",
@@ -56,10 +55,10 @@ const PageHeader: FC<Props> = ({
                 >
                     <PlusIcon strokeWidth={2.2} className={"size-4"} />
                     <span>Add filter</span>
-                </Button>
+                </Button> */}
 
                 {ctaLink && ctaText && (
-                    <ButtonLink to={ctaLink} className={"py-2 gap-1"}>
+                    <ButtonLink to={ctaLink} className={"py-2 bg-accent gap-1"}>
                         {withIcon && (
                             <PlusIcon strokeWidth={2.2} className={"size-4"} />
                         )}
