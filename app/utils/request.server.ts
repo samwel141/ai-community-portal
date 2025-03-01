@@ -1,4 +1,5 @@
 import { redirect } from "@remix-run/node";
+import { redirectWithSuccess } from "remix-toast";
 import {
     HTTP_BAD_REQUEST,
     HTTP_FORBIDDEN,
@@ -55,11 +56,12 @@ export function safeRedirect(
  * @returns A redirection response with the success message.
  */
 export const safeRedirectWithSuccess = (
-to: RedirectUrl, message: string, p0: { headers: { "Set-Cookie": string; }; },
-    // init?: ResponseInit
+    to: RedirectUrl,
+    message: string,
+    init?: ResponseInit
 ) => {
     const redirectTo = validatedRedirectUrl(to);
-    // return redirectWithSuccess(redirectTo, message, init);
+    return redirectWithSuccess(redirectTo, message, init);
     return redirect(redirectTo);
 };
 
@@ -68,7 +70,7 @@ to: RedirectUrl, message: string, p0: { headers: { "Set-Cookie": string; }; },
  * `400` Bad Request, to the client.
  */export const badRequest = <T>(data: T) =>
     new Response(JSON.stringify(data), {
-        status:  HTTP_BAD_REQUEST,
+        status: HTTP_BAD_REQUEST,
         headers: {
             "Content-Type": "application/json",
         },
@@ -133,7 +135,7 @@ export const invalidDataReturned = (message: string) =>
         status: HTTP_METHOD_NOT_ALLOWED,
         headers: { "Content-Type": "application/json" },
     });
-    
+
 const ErrorResponseMap: Record<number, JsonFunction> = {
     [HTTP_BAD_REQUEST]: badRequest,
     [HTTP_INTERNAL_SERVER_ERROR]: internalServerError,

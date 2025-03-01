@@ -45,7 +45,7 @@ const PageHeader: FC<Props> = ({
             </Hide>
        
             <div className={cn("flex items-center gap-3 ")}>
-                <Button
+                {/* <Button
                     outline
                     className={cn(
                         "border-westar border gap-1 py-2 text-primary-950",
@@ -56,10 +56,10 @@ const PageHeader: FC<Props> = ({
                 >
                     <PlusIcon strokeWidth={2.2} className={"size-4"} />
                     <span>Add filter</span>
-                </Button>
+                </Button> */}
 
                 {ctaLink && ctaText && (
-                    <ButtonLink to={ctaLink} className={"py-2 gap-1"}>
+                    <ButtonLink to={ctaLink} className={"py-2 bg-accent gap-1"}>
                         {withIcon && (
                             <PlusIcon strokeWidth={2.2} className={"size-4"} />
                         )}

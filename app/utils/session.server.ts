@@ -20,9 +20,6 @@ export async function createUserSession(
 ) {
     const session = await storage.getSession();
 
-    console.log(["Auth user in server"], authUser);
-    toast.success("message")
-
     await saveOrUpdateUser(authUser);
     session.set("userId", authUser.id);
 

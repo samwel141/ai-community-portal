@@ -94,14 +94,14 @@ const AvatarInput: FC<AvatarInputProps> = ({
                     />
                     <Card
                         className={cn(
-                            "relative gap-3 flex items-center bg-white cursor-pointer space-y-1 rounded-xl p-2 font-light text-gray-600 hover:bg-gray-50",
+                            "relative gap-3 flex items-center h-[10rem] bg-primary rounded-none cursor-pointer space-y-1 p-2 font-light text-gray-600 hover:opacity-80",
                             innerWrapperClassName,
                             { "bg-gray-100": isUploading },
                             { "border-red-500": hasError }
                         )}
                     >
                         <ImagePreview />
-                        <CardText />
+                        {/* <CardText /> */}
                     </Card>
                 </label>
             </FieldContainer>
